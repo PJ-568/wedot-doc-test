@@ -1,0 +1,11 @@
+name: 编译离线文件
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
