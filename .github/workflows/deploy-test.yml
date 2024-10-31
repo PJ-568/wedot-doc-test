@@ -1,0 +1,45 @@
+name: 部署
+
+on:
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - '**'
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取本仓库
+        uses: actions/checkout@v4
+
+      - name: 安装 mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: '0.4.37'
+          # mdbook-version: 'latest'
+
+      - name: 编译并检查
+        run: mdbook -V && mdbook build && mdbook test && cd book
+
+      # HTML/CSS/JS Minifier
+      # - uses: docker://devatherock/minify-js:2.0.0
+      #   with:
+      #     add_suffix: false     # Optional
+
+      - name: 生成站点地图
+        id: sitemap
+        uses: cicirello/generate-sitemap@v1
+        with:
+          base-url-path: https://docs.wedot.top/
+      
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test-Files
+          path: |
+            book/
+

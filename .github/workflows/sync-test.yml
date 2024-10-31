@@ -1,4 +1,4 @@
-name: CI tests
+name: 拉取上游
 
 on:
   workflow_dispatch:
@@ -8,20 +8,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.10' 
-        
+          python-version: "3.10"
+
       - name: Install pandoc
         uses: pandoc/actions/setup@v1
-      
+
       - run: |
-          git clone --depth 1 https://github.com/Wedot-Engine/godot-docs.git ./input
-          python convert_rst_to_md.py input/ output/
-      
+          git clone --depth 1 https://github.com/Wedot-Engine/godot-docs.git scripts/input
+          python scripts/convert_rst_to_md.py scripts/input/ scripts/output/
+          python scripts/postprocessing.py scripts/output/
+
       - uses: actions/upload-artifact@v4
         with:
           name: test-Files
           path: |
-            output/**
+            scripts/output/**
