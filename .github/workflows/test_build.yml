@@ -24,4 +24,4 @@ jobs:
         with:
           name: test-Files
           path: |
-            output/
+            output/**
