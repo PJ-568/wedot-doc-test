@@ -56,12 +56,6 @@
 </head>
 
 <body class="sidebar-visible no-js">
-  {{!-- 加载页面 --}}
-  {{!-- <div id="hmd-loading">
-    <div id="hmd-loading_bg">
-      <img alt="正在加载" class="hmd-loader" src="//Hamud.PJ568.sbs/css/loading.svg" />
-    </div>
-  </div> --}}
   <div id="body-container">
     <!-- Provide site root to javascript -->
     <script>
@@ -185,7 +179,7 @@
           <h1 class="menu-title">{{ book_title }}</h1>
 
           <div class="right-buttons">
-            <a href="{{ path_to_root }}" class="pjax-reload" title="返回主页">
+            <a href="../{{ path_to_root }}" class="pjax-reload" title="返回主页">
               <i class="fa fa-home"></i>
             </a>
             {{#if print_enable}}
