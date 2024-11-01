@@ -24,18 +24,20 @@ jobs:
           # mdbook-version: 'latest'
 
       - name: 编译并检查
-        run: mdbook -V && mdbook build && mdbook test && cd book
+        run: mdbook -V && mdbook build && mdbook test
 
       # HTML/CSS/JS Minifier
       # - uses: docker://devatherock/minify-js:2.0.0
       #   with:
       #     add_suffix: false     # Optional
 
+      - run: cd book
       - name: 生成站点地图
         id: sitemap
         uses: cicirello/generate-sitemap@v1
         with:
           base-url-path: https://docs.wedot.top/
+      - run: cd ..
       
       - uses: actions/upload-artifact@v4
         with:

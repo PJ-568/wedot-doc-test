@@ -29,7 +29,7 @@ def convert_rst_to_md(src_dir, dest_dir):
                 # 构建目标文件路径
                 dest_file_path = os.path.join(dest_subdir, file[:-4] + '.md')
                 # 使用 pandoc 转换文件
-                subprocess.run(['pandoc', src_file_path, '-f', 'rst', '-t', 'commonmark_x', '-o', dest_file_path], check=True)
+                subprocess.run(['pandoc', src_file_path, '-f', 'rst', '-t', 'markdown', '-o', dest_file_path], check=True)
                 print(f"已把 {src_file_path} 转换到 {dest_file_path}")
 
 # 示例调用

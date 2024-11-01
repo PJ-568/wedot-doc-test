@@ -77,12 +77,12 @@
       script.src = "https://giscus.app/client.js";
 
 
-      script.setAttribute("data-repo", "Hamud-Lang/Hamud_Book");
-      script.setAttribute("data-repo-id", "R_kgDOKAX-uw");
+      script.setAttribute("data-repo", "Wedot-Engine/Wedot-docs");
+      script.setAttribute("data-repo-id", "R_kgDONDfw-A");
       script.setAttribute("data-category", "Announcements");
       script.setAttribute("data-category-id", "DIC_kwDOKAX-u84CYRSk");
 
-      script.setAttribute("data-mapping", "title");
+      script.setAttribute("data-mapping", "pathname");
       script.setAttribute("data-strict", "1");
       script.setAttribute("data-reactions-enabled", "1");
       script.setAttribute("data-emit-metadata", "0");
