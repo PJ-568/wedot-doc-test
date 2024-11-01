@@ -19,7 +19,7 @@ jobs:
       - run: |
           git clone --depth 1 https://github.com/Wedot-Engine/godot-docs.git scripts/input
           python scripts/convert_rst_to_md.py scripts/input/ scripts/output/
-          python scripts/postprocessing.py scripts/output/
+          # python scripts/postprocessing.py scripts/output/
 
       - uses: actions/upload-artifact@v4
         with:
